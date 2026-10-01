@@ -29,15 +29,15 @@ module alu(
     output logic                    less_u_flag
     );
     
-    logic [31:0] and_result;
-    logic [31:0] or_result;
-    logic [31:0] add_result;
-    logic [31:0] sub_result;
-    logic [31:0] xor_result;
-    logic [31:0] lls_result;
-    logic [31:0] lrs_result;
-    logic [31:0] ars_result;
-    logic [31:0] mul_result;
+    logic [REG_SIZE - 1:0] and_result;
+    logic [REG_SIZE - 1:0] or_result;
+    logic [REG_SIZE - 1:0] add_result;
+    logic [REG_SIZE - 1:0] sub_result;
+    logic [REG_SIZE - 1:0] xor_result;
+    logic [REG_SIZE - 1:0] lls_result;
+    logic [REG_SIZE - 1:0] lrs_result;
+    logic [REG_SIZE - 1:0] ars_result;
+    logic [REG_SIZE - 1:0] mul_result;
     logic cout;
     
     cla cla_inst (
