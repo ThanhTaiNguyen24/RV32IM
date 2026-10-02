@@ -1,7 +1,8 @@
 # RISC-V 32-bit 5-Stage Pipelined CPU Core
 
 This repository contains a 32-bit RISC-V CPU core implemented in SystemVerilog. The system utilizes a standard 5-stage pipeline architecture (Fetch, Decode, Execute, Memory, and Write Back) to optimize computational performance, the arithmetic execution core is enhanced with the integration of a custom Carry-Lookahead Adder.
-
+![RISC-V 5-Stage Pipeline Architecture](assets/riscv_datapath_arch.png)
+For a more detailed interactive view, the architecture is further described in the [draw.io schematic file](assets/riscv_architecture.drawio) located in the `assets` directory.
 ## Key Features
 
 * **5-Stage Pipeline:** Implements standard instruction processing stages for optimized throughput.
