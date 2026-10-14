@@ -26,17 +26,23 @@ module mul (
     input  logic [4:0]  alu_ctrl_e,
     output logic  [REG_SIZE - 1:0] result
 );
-
+    logic signed [63:0] a_s;
+    logic signed [63:0] b_s;
+    logic [63:0]        a_u;
+    logic [63:0]        b_u;
+    logic signed [63:0] r_ss;
+    logic signed [63:0] r_su;
+    logic        [63:0] r_uu;
     // SIGN-EXTEND và ZERO-EXTEND
-    logic signed [63:0] a_s = {{32{a[31]}}, a};
-    logic signed [63:0] b_s = {{32{b[31]}}, b};
+    assign a_s = {{32{a[31]}}, a};
+    assign b_s = {{32{b[31]}}, b};
 
-    logic [63:0]        a_u = {32'b0, a};
-    logic [63:0]        b_u = {32'b0, b};
+    assign a_u = {32'b0, a};
+    assign b_u = {32'b0, b};
 
-    logic signed [63:0] r_ss  = a_s * b_s;  // signed × signed
-    logic signed [63:0] r_su  = a_s * b_u;  // signed × unsigned
-    logic        [63:0] r_uu  = a_u * b_u;  // unsigned × unsigned
+    assign r_ss  = a_s * b_s;  // signed × signed
+    assign r_su  = a_s * b_u;  // signed × unsigned
+    assign r_uu  = a_u * b_u;  // unsigned × unsigned
 
     always @(*) begin
         case (alu_ctrl_e)
